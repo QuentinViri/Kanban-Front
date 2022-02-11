@@ -1,0 +1,65 @@
+<div>
+  <div class="submit-form">
+    <h4>Add Task</h4>
+    <div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="task.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="tasktypes">Type</label>
+        <br>
+        <select [(ngModel)]="selectedType" class="form-control" name="selectedType">
+          <option disabled>Select type</option>
+          <option *ngFor="let tasktype of tasktypes" [ngValue]="tasktype">
+            {{tasktype.label}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="hoursForecast">NbHoursForecast</label>
+        <input
+          type="number"
+          class="form-control"
+          id="hoursForecast"
+          required
+          [(ngModel)]="task.nbHoursForecast"
+          name="forecast"
+        />
+      </div>
+      <div class="form-group">
+        <label for="hoursReal">NbHoursReal</label>
+        <input
+          type="number"
+          class="form-control"
+          id="hoursReal"
+          required
+          [(ngModel)]="task.nbHoursReal"
+          name="real"
+        />
+      </div>
+      <div class="form-group">
+        <label for="developers">Developers</label>
+        <br>
+        <select id="developers" [(ngModel)]="selectedDeveloper" class="form-control" name="selectedDeveloper" >
+          <option disabled>Select developers</option>
+          <option *ngFor="let developer of developers" [ngValue]="developer">
+            {{developer.firstname}} {{developer.lastname}}
+          </option>
+        </select>
+      </div>
+
+
+      <button (click)="saveTask()" class="btn btn-success">Submit</button>
+
+    </div>
+
+  </div>
+</div>
